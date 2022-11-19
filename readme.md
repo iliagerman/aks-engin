@@ -27,3 +27,9 @@ sp.json file example:
   "password": "***",
   "tenant": "***"
 }
+
+# Overvie:
+- Webserver - exposes the market data via /webserver preifx.
+- Seeder - Adds new market data to Webserver every 10 seconds
+- Service - Exposes a single get /service
+- MongoDB - Stores the market date (will auto delete old date)
