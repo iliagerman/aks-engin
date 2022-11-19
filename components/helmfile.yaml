@@ -1,0 +1,52 @@
+environments:
+  default:
+    values:
+    - default.yaml
+releases:
+#Ingress Controller - Nginx
+- name: ingress-nginx
+  chart: ingress-nginx/ingress-nginx
+  version: 4.1.3
+  namespace: ingress-nginx
+  values:
+  - ./ingress-nginx/values.yaml.gotmpl
+
+#Mongodb
+- name: mongodb
+  chart: bitnami/mongodb
+  version: 12.1.31
+  namespace: mongodb
+  values:
+  - ./default.yaml
+  - ./mongodb/values.yaml.gotmpl
+
+#webserver
+- name: webserver
+  chart: ./webserver
+  version: 1.0.0
+  namespace: webserver
+  values:
+  - ./default.yaml
+  - ./webserver/values.yaml.gotmpl
+
+#service
+- name: service
+  chart: ./service
+  version: 1.0.0
+  namespace: service
+  values:
+  - ./default.yaml
+  - ./service/values.yaml.gotmpl  
+
+#seeder
+- name: seeder
+  chart: ./seeder
+  version: 1.0.0
+  namespace: webserver
+  values:
+  - ./default.yaml
+  - ./seeder/values.yaml.gotmpl
+
+repositories:
+- name: mongodb
+  url: https://charts.bitnami.com/bitnami

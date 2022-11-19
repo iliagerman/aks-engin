@@ -1,0 +1,7 @@
+#ignores sp credentials
+sp.json
+passwords
+variables
+working_folder/**
+default.yaml
+**/node_modules

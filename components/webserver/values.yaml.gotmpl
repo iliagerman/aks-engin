@@ -1,0 +1,13 @@
+name: webserver
+container:
+  image: iliagerman/interview
+  tag: webserver
+  port: 3000
+  secretName: mongodb
+service:
+  port: 80
+ingress:
+  path: webserver  
+db_connection:
+  MONGO_DB_USERNMAE: {{ .Values | get "MONGO_DB_USERNMAE" }}
+  MONGO_DB_PASSWORD: {{ .Values | get "MONGO_DB_PASSWORD" }}

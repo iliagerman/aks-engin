@@ -1,0 +1,5 @@
+name: mongodb
+rbac:
+    create: true
+auth:
+    rootPassword: {{ .Values | get "MONGO_DB_PASSWORD_PLAIN" }}

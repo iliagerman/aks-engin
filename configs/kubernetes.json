@@ -1,0 +1,36 @@
+{
+  "apiVersion": "vlabs",
+  "properties": {
+    "orchestratorProfile": {
+      "kubernetesConfig": {
+        "networkPolicy": "calico",
+        "networkPlugin": "azure"
+      }
+    },
+    "masterProfile": {
+      "count": 1,
+      "dnsPrefix": "",
+      "vmSize": "Standard_D2_v3",
+      "distro": "ubuntu-18.04"
+    },
+    "agentPoolProfiles": [
+      {
+        "name": "agentpool1",
+        "count": 1,
+        "vmSize": "Standard_D2_v3",
+        "distro": "ubuntu-18.04"
+      }
+    ],
+    "linuxProfile": {
+      "runUnattendedUpgradesOnBootstrap": false,
+      "adminUsername": "azureuser",
+      "ssh": {
+        "publicKeys": [
+          {
+            "keyData": ""
+          }
+        ]
+      }
+    }
+  }
+}

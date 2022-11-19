@@ -1,0 +1,12 @@
+name: service
+container:
+  image: iliagerman/interview
+  tag: service
+  port: 3000
+service:
+  port: 80
+ingress:
+  path: service
+db_connection:
+  MONGO_DB_USERNMAE: super_secret_user
+  MONGO_DB_PASSWORD: super_secret_password
